@@ -4,7 +4,7 @@
 
 Esta avaliação consiste em testar e corrigir a função `calcular_desconto`, responsável por calcular o desconto de compras de um sistema de e-commerce.
 
-Foram utilizados **Python** e **Pytest** para criação e execução dos testes automatizados.
+Foram utilizados Python e Pytest para criação e execução dos testes automatizados.
 
 ## Regras de negócio
 
@@ -45,3 +45,58 @@ O código original utilizava:
 
 ```python
 if valor_compra > 100
+
+Porém, de acordo com o requisito, compras de R$ 100,00 ou mais devem receber 10% de desconto.
+
+A condição foi corrigida para:
+
+if valor_compra >= 100
+
+2. Cliente VIP em letras minúsculas
+
+O código original reconhecia somente:
+
+tipo_cliente == "VIP"
+
+Dessa forma, valores como vip não eram reconhecidos como clientes VIP.
+
+A validação foi corrigida utilizando:
+
+tipo_cliente.upper() == "VIP"
+
+Assim, valores como VIP, vip, Vip e vIp são reconhecidos corretamente.
+
+Resultado dos testes
+Execução inicial
+
+Os testes identificaram os dois bugs presentes no código original:
+
+2 failed, 9 passed
+Após as correções
+
+Após corrigir os problemas encontrados:
+
+11 passed
+
+Todos os testes automatizados foram executados com sucesso.
+
+Tecnologias utilizadas
+Python 3.14.2
+Pytest 9.1.1
+Git
+GitHub
+Estrutura do projeto
+avaliacao-qa/
+├── calculadora.py
+├── test_calculadora.py
+├── README.md
+├── .gitignore
+└── evidencias/
+    ├── PRINT1.png
+    └── PRINT2.png
+Evidências
+
+As evidências da execução dos testes estão disponíveis na pasta evidencias/.
+
+PRINT1: execução inicial, demonstrando os testes que encontraram os bugs.
+PRINT2: execução após as correções, demonstrando que todos os testes passaram.
